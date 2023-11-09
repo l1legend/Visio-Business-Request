@@ -20,3 +20,6 @@ The rules engine will calculate the interest rate and provide a boolean value re
 
 Rules can be configured in `rules.json`. The default interest rate can be set here with the initial value of 5.
 Additional rules can be added in this file.
+
+## Running Unit Tests:
+Enter the command: `python test_rules_engine.py` The unit test engine should run automatically.
