@@ -1,4 +1,4 @@
-import json
+from rules_loader import load_rules
 from person import Person
 from product import Product
 from user_input import get_person_details, get_product_details
@@ -6,12 +6,7 @@ from user_input import get_person_details, get_product_details
 class RulesEngine:
     def __init__(self, rules):
         self.rules = rules
-
-    def load_rules_from_json(file_path):
-        with open(file_path, 'r') as file:
-            rules = json.load(file)
-        return rules
-    
+ 
     def run_rules(self, person, product):
         for rule in self.rules:
             if eval(rule['condition']):
@@ -28,7 +23,7 @@ class RulesEngine:
 
 if __name__ == '__main__':
     # Load the rules from the JSON file.
-    rules = RulesEngine.load_rules_from_json('rules.json')
+    rules = load_rules()
 
     # Get user input for the Person and Product details.
     credit_score, state = get_person_details()

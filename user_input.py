@@ -1,4 +1,5 @@
-import json
+
+from rules_loader import load_rules
 
 def get_person_details():
     while True:
@@ -13,18 +14,12 @@ def get_person_details():
     state = input('Enter the state: ')
     return credit_score, state
 
-# def get_product_details():
-#     product_name = input('Enter the name of the product: ')
-#     return product_name
-
 def get_product_details():
-    with open('rules.json', 'r') as file:
-        rules = json.load(file)
+    rules = load_rules()
     valid_product_names = set()
     for rule in rules:
         condition = rule.get('condition', '')
         if "product.name" in condition:
-            # This assumes the product name is formatted as 'product.name == "Product Name"' in the condition
             start = condition.find("'") + 1  # Find the opening quote
             end = condition.find("'", start)  # Find the closing quote
             product_name = condition[start:end]  # Extract the product name
