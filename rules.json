@@ -1,0 +1,28 @@
+
+[
+    {
+        "condition": "person.state.lower() == 'florida'",
+        "action": "disqualify"
+    },
+    {
+        "condition": "person.credit_score >= 720",
+        "action": "adjust_interest_rate",
+        "parameters": {
+            "amount": -3
+        }
+    },
+    {
+        "condition": "person.credit_score < 720",
+        "action": "adjust_interest_rate",
+        "parameters": {
+            "amount": 0.5
+        }
+    },
+    {
+        "condition": "product.name == '7-1 ARM'",
+        "action": "adjust_interest_rate",
+        "parameters": {
+            "amount": 0.5
+        }
+    }
+]
