@@ -9,7 +9,7 @@ class RulesEngine:
 
     def run_rules(self, person, product):
         # Apply rules in order, assuming the first rule sets the default interest rate
-        
+
         for rule in self.rules:
             if eval(rule['condition']):
                 action = rule['action']
@@ -28,7 +28,7 @@ def load_rules_from_json(file_path):
         rules = json.load(file)
     return rules
 
-# Example usage:
+
 if __name__ == '__main__':
     # Load the rules from the JSON file.
     rules = load_rules_from_json('rules.json')
@@ -37,17 +37,17 @@ if __name__ == '__main__':
     credit_score, state = get_person_details()
     product_name = get_product_details()
 
-    # Create an instance of Product with the default interest rate set by the rules.
-    product_example = Product(product_name)
-
     # Create an instance of Person with the user input.
-    person_example = Person(credit_score, state)
+    person_input = Person(credit_score, state)
+
+    # Create an instance of Product with the default interest rate set by the rules.
+    product_input = Product(product_name)
 
     # Run the rules engine with the provided details.
     rules_engine = RulesEngine(rules)
-    rules_engine.run_rules(person_example, product_example)
+    rules_engine.run_rules(person_input, product_input)
 
     # Output the results.
     print('\nResults:')
-    print(f'Product Interest Rate: {product_example.interest_rate}')
-    print(f'Product Disqualified: {product_example.disqualified}')
+    print(f'Product Interest Rate: {product_input.interest_rate}')
+    print(f'Product Disqualified: {product_input.disqualified}')
