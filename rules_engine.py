@@ -4,21 +4,19 @@ from product import Product
 from user_input import get_person_details, get_product_details
 
 class RulesEngine:
-    def __init__(self, rules):
+    def __init__(self, rules): # Initialize the RulesEngine with a set of rules
         self.rules = rules
  
     def run_rules(self, person, product):
-        for rule in self.rules:
-            if eval(rule['condition']):
+        for rule in self.rules:  # Iterate over each rule and evaluate its condition
+            if eval(rule['condition']): # Use eval to interpret the condition string
                 action = rule['action']
-                if action == 'set_default_interest_rate':
-                    # Set the default interest rate from the rule
+                if action == 'set_default_interest_rate': # Set the default interest rate from the rule
                     product.interest_rate = rule['parameters']['amount']
-                elif action == 'disqualify':
+                elif action == 'disqualify':  
                     product.disqualified = True
                 elif action == 'adjust_interest_rate':
-                    # Adjust the interest rate based on the rule
-                    amount = rule['parameters']['amount']
+                    amount = rule['parameters']['amount'] # Adjust the interest rate based on the rule
                     product.interest_rate += amount
 
 if __name__ == '__main__':

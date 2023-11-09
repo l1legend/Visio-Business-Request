@@ -3,11 +3,12 @@ import unittest
 from rules_engine import RulesEngine
 from person import Person
 from product import Product
+from rules_loader import load_rules
 
 class TestRulesEngine(unittest.TestCase):
     @classmethod
     def setUpClass(cls):
-        cls.rules = RulesEngine.load_rules_from_json('rules.json')
+        cls.rules = load_rules()
 
     def test_disqualified_state(self):
         engine = RulesEngine(self.rules)
