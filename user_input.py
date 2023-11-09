@@ -6,5 +6,4 @@ def get_person_details():
 
 def get_product_details():
     product_name = input('Enter the name of the product: ')
-    interest_rate = float(input('Enter the interest rate of the product: '))
-    return product_name, interest_rate
+    return product_name

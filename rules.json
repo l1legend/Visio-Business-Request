@@ -1,11 +1,22 @@
 
 [
     {
+        "condition": "True", 
+        "action": "set_default_interest_rate",
+        "parameters": {
+            "amount": 5
+        }
+    },
+    {
         "condition": "person.state.lower() == 'lousiana'",
         "action": "disqualify"
     },
     {
         "condition": "person.state.lower() == 'mississippi'",
+        "action": "disqualify"
+    },
+    {
+        "condition": "person.state.lower() == 'florida'",
         "action": "disqualify"
     },
     {
