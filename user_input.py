@@ -15,7 +15,7 @@ def get_person_details():
     return credit_score, state
 
 def get_product_details():
-    rules = load_rules() #
+    rules = load_rules()
     valid_product_names = set()
     for rule in rules:
         condition = rule.get('condition', '')
