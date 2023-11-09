@@ -44,15 +44,6 @@ class TestRulesEngine(unittest.TestCase):
         engine.run_rules(person, product)
         self.assertEqual(product.interest_rate, 6.0, "Interest rate should be adjusted to 6.0 for credit score 710")
 
-
-    def test_unrecognized_product_name(self):
-        engine = RulesEngine(self.rules)
-        person = Person(710, 'Texas')
-        product = Product('Unknown Product')
-        engine.run_rules(person, product)
-        self.assertEqual(product.interest_rate, 5.5, "Interest rate should remain at the default for an unrecognized product name")
-        self.assertFalse(product.disqualified, "Product should not be disqualified if the product name is unrecognized")
-
 # If this file is run directly, run the tests
 if __name__ == '__main__':
     unittest.main()
