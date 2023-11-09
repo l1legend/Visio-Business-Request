@@ -39,5 +39,12 @@
         "parameters": {
             "amount": 0.5
         }
+    },
+    {
+        "condition": "product.name == '7-2 ARM'",
+        "action": "adjust_interest_rate",
+        "parameters": {
+            "amount": 0.6
+        }
     }
 ]

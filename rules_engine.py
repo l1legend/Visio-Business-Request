@@ -7,6 +7,11 @@ class RulesEngine:
     def __init__(self, rules):
         self.rules = rules
 
+    def load_rules_from_json(file_path):
+        with open(file_path, 'r') as file:
+            rules = json.load(file)
+        return rules
+    
     def run_rules(self, person, product):
         # Apply rules in order, assuming the first rule sets the default interest rate
 
@@ -23,15 +28,9 @@ class RulesEngine:
                     amount = rule['parameters']['amount']
                     product.interest_rate += amount
 
-def load_rules_from_json(file_path):
-    with open(file_path, 'r') as file:
-        rules = json.load(file)
-    return rules
-
-
 if __name__ == '__main__':
     # Load the rules from the JSON file.
-    rules = load_rules_from_json('rules.json')
+    rules = RulesEngine.load_rules_from_json('rules.json')
 
     # Get user input for the Person and Product details.
     credit_score, state = get_person_details()
