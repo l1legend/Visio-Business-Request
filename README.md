@@ -12,6 +12,8 @@
 3. Enter the command: `python rules_engine.py`
 4. Input the values for the credit score, state, and name of the product.
 
+![1](https://github.com/l1legend/Visio-Business-Request/assets/28288764/26538d38-5e06-448a-80f5-e31b10ae3dff)
+
 The rules engine will calculate the interest rate and provide a boolean value for if the product is disqualified based on a particular state.
 
 ## Rules:
