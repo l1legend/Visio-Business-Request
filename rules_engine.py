@@ -13,8 +13,6 @@ class RulesEngine:
         return rules
     
     def run_rules(self, person, product):
-        # Apply rules in order, assuming the first rule sets the default interest rate
-
         for rule in self.rules:
             if eval(rule['condition']):
                 action = rule['action']
