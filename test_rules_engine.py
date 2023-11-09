@@ -29,21 +29,28 @@ class TestRulesEngine(unittest.TestCase):
         person = Person(720, 'Florida')
         product = Product('7-1 ARM')
         engine.run_rules(person, product)
-        self.assertEqual(product.interest_rate, 5.2, "Interest rate should be adjusted to 5.2 for credit score 720")
+        self.assertEqual(product.interest_rate, 5.2, "Interest rate should be adjusted to 5.2 for credit score of 720")
 
     def test_interest_rate_adjustment_for_credit_score_over_720(self):
         engine = RulesEngine(self.rules)
         person = Person(730, 'Florida')
         product = Product('7-1 ARM')
         engine.run_rules(person, product)
-        self.assertEqual(product.interest_rate, 5.2, "Interest rate should be adjusted to 5.2 for credit score 730")
+        self.assertEqual(product.interest_rate, 5.2, "Interest rate should be adjusted to 5.2 for credit score of 730")
 
     def test_interest_rate_adjustment_for_credit_score_below_720(self):
         engine = RulesEngine(self.rules)
         person = Person(710, 'Florida')
         product = Product('7-1 ARM')
         engine.run_rules(person, product)
-        self.assertEqual(product.interest_rate, 6.0, "Interest rate should be adjusted to 6.0 for credit score 710")
+        self.assertEqual(product.interest_rate, 6.0, "Interest rate should be adjusted to 6.0 for credit score of 710")
+
+    def test_alternative_product(self):
+        engine = RulesEngine(self.rules)
+        person = Person(720, 'Texas')
+        product = Product('7-2 ARM')
+        engine.run_rules(person, product)
+        self.assertEqual(product.interest_rate, 5.3, "Interest rate should be adjusted to 5.3 for product 7-2 ARM")       
 
 # If this file is run directly, run the tests
 if __name__ == '__main__':
