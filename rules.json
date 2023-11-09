@@ -1,6 +1,10 @@
 
 [
     {
+        "condition": "person.state.lower() == 'lousiana'",
+        "action": "disqualify"
+    },
+    {
         "condition": "person.state.lower() == 'florida'",
         "action": "disqualify"
     },
