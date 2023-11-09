@@ -14,7 +14,7 @@
 
 ![1](https://github.com/l1legend/Visio-Business-Request/assets/28288764/26538d38-5e06-448a-80f5-e31b10ae3dff)
 
-The rules engine will calculate the interest rate and provide a boolean value regarding whether or not the product is disqualified based on the value of the state. 
+The rules engine will calculate the interest rate and provide a boolean value regarding whether or not the product is disqualified based on the value for the state. 
 
 ## Rules:
 
