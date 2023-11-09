@@ -2,6 +2,7 @@
 import json
 from person import Person
 from product import Product
+from user_input import get_person_details, get_product_details
 
 class RulesEngine:
     def __init__(self, rules):
@@ -22,17 +23,24 @@ def load_rules_from_json(file_path):
         rules = json.load(file)
     return rules
 
-# Example usage:
+# Example usage with modular user input:
 if __name__ == '__main__':
+    # Load the rules from the JSON file.
     rules = load_rules_from_json('rules.json')
     rules_engine = RulesEngine(rules)
     
-    person_example = Person(720, 'Florida')
-    product_example = Product('7-1 ARM', 5.0)
+    # Get user input for the Person and Product details.
+    credit_score, state = get_person_details()
+    product_name, interest_rate = get_product_details()
     
+    # Create instances of Person and Product with the user input.
+    person_example = Person(credit_score, state)
+    product_example = Product(product_name, interest_rate)
+    
+    # Run the rules engine with the provided details.
     rules_engine.run_rules(person_example, product_example)
     
-    print({
-        'product_interest_rate': product_example.interest_rate,
-        'product_disqualified': product_example.disqualified
-    })
+    # Output the results.
+    print('\nResults:')
+    print(f'Product Interest Rate: {product_example.interest_rate}')
+    print(f'Product Disqualified: {product_example.disqualified}')
