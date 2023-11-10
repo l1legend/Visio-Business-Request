@@ -1,6 +1,6 @@
-from rules_loader import load_rules
 from person import Person
 from product import Product
+from rules_loader import load_rules
 from user_input import get_valid_credit_score, get_valid_state, get_product_details
 
 class RulesEngine:
