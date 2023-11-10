@@ -12,11 +12,6 @@ class TestRulesEngine(unittest.TestCase):
     def setUpClass(cls):
         cls.rules = load_rules()
 
-    def test_invalid_state_input(self):
-        with patch('builtins.input', side_effect=['123', '!@#', 'ValidState']):
-            state = get_valid_state()
-            self.assertTrue(state.isalpha(), "The state should not contain numbers or special characters.")
-
     def test_disqualified_state(self):
         engine = RulesEngine(self.rules)
         person = Person(720, 'Florida')

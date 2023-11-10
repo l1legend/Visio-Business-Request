@@ -13,12 +13,21 @@ def get_valid_credit_score() -> int:
             print("That's not a valid number. Please enter an integer value for the credit score.")
 
 def get_valid_state() -> str:
+    valid_states = {
+        'alabama', 'alaska', 'arizona', 'arkansas', 'california', 'colorado', 'connecticut', 'delaware', 'florida',
+        'georgia', 'hawaii', 'idaho', 'illinois', 'indiana', 'iowa', 'kansas', 'kentucky', 'louisiana', 'maine',
+        'maryland', 'massachusetts', 'michigan', 'minnesota', 'mississippi', 'missouri', 'montana', 'nebraska',
+        'nevada', 'new hampshire', 'new jersey', 'new mexico', 'new york', 'north carolina', 'north dakota', 'ohio',
+        'oklahoma', 'oregon', 'pennsylvania', 'rhode island', 'south carolina', 'south dakota', 'tennessee', 'texas',
+        'utah', 'vermont', 'virginia', 'washington', 'west virginia', 'wisconsin', 'wyoming'
+    }
+
     while True:
-        state = input("Please enter your state: ")
-        if state.isalpha():
-            return state
+        state_input = input("Please enter the full name of the state: ").lower()
+        if state_input in valid_states:
+            return state_input.title()
         else:
-            print("Invalid input. Please enter a valid state without numbers or special characters.")
+            print("Invalid input. Please enter a valid U.S. state name.")
 
 def get_product_details() -> str:
     rules = load_rules()
