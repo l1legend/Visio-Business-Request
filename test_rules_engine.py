@@ -1,4 +1,3 @@
-
 import unittest
 from unittest.mock import patch
 from rules_engine import RulesEngine
