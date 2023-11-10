@@ -23,7 +23,7 @@ def get_valid_state() -> str:
     }
 
     while True:
-        state_input = input("Please enter the full name of the state: ").lower()
+        state_input = input("Please enter a valid U.S. state name: ").lower()
         if state_input in valid_states:
             return state_input.title()
         else:
