@@ -1,13 +1,13 @@
 from rules_loader import load_rules
 from person import Person
 from product import Product
-from user_input import get_person_details, get_product_details
+from user_input import get_valid_credit_score, get_valid_state, get_product_details
 
 class RulesEngine:
     def __init__(self, rules): # Initialize the RulesEngine with a set of rules
         self.rules = rules
  
-    def run_rules(self, person, product):
+    def run_rules(self, person, product) -> float:
         for rule in self.rules:  # Iterate over each rule and evaluate its condition
             if eval(rule['condition']): # Use eval to interpret the condition string
                 action = rule['action']
@@ -24,7 +24,8 @@ if __name__ == '__main__':
     rules = load_rules()
 
     # Get user input for the Person and Product details.
-    credit_score, state = get_person_details()
+    credit_score = get_valid_credit_score()
+    state = get_valid_state()
     product_name = get_product_details()
 
     # Create an instance of Person with the user input.

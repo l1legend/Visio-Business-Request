@@ -1,20 +1,26 @@
 
 from rules_loader import load_rules
 
-def get_person_details():
+def get_valid_credit_score() -> int:
     while True:
         try:
             credit_score = int(input('Enter the credit score: '))
             if credit_score < 0:
                 print("Credit score cannot be negative. Please enter a valid positive integer.")
-                continue  # Continue will restart the loop, asking for input again
-            break  # If input is valid, break out of the loop
+            else:
+                return credit_score
         except ValueError:
             print("That's not a valid number. Please enter an integer value for the credit score.")
-    state = input('Enter the state: ')
-    return credit_score, state
 
-def get_product_details():
+def get_valid_state() -> str:
+    while True:
+        state = input("Please enter your state: ")
+        if state.isalpha():
+            return state
+        else:
+            print("Invalid input. Please enter a valid state without numbers or special characters.")
+
+def get_product_details() -> str:
     rules = load_rules()
     valid_product_names = set()
     for rule in rules:
