@@ -8,8 +8,10 @@ class RulesEngine:
         self.rules = rules
  
     def run_rules(self, person, product):
+        normalized_state = person.state.lower()
         for rule in self.rules:  # Iterate over each rule and evaluate its condition
-            if eval(rule['condition']): # Use eval to interpret the condition string
+            condition = rule['condition'].replace('person.state', f"'{normalized_state}'") # normalize state string before conditions are interpreted
+            if eval(condition): 
                 action = rule['action']
                 if action == 'set_default_interest_rate': # Set the default interest rate from the rule
                     product.interest_rate = rule['parameters']['amount']

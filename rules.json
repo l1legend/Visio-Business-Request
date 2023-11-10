@@ -8,15 +8,15 @@
         }
     },
     {
-        "condition": "person.state.lower() == 'lousiana'",
+        "condition": "person.state == 'lousiana'",
         "action": "disqualify"
     },
     {
-        "condition": "person.state.lower() == 'mississippi'",
+        "condition": "person.state == 'mississippi'",
         "action": "disqualify"
     },
     {
-        "condition": "person.state.lower() == 'florida'",
+        "condition": "person.state == 'florida'",
         "action": "disqualify"
     },
     {
