@@ -7,7 +7,7 @@ class RulesEngine:
     def __init__(self, rules): # Initialize the RulesEngine with a set of rules
         self.rules = rules
  
-    def run_rules(self, person, product) -> float:
+    def run_rules(self, person, product):
         for rule in self.rules:  # Iterate over each rule and evaluate its condition
             if eval(rule['condition']): # Use eval to interpret the condition string
                 action = rule['action']
