@@ -12,6 +12,21 @@ class TestRulesEngine(unittest.TestCase):
     def setUpClass(cls):
         cls.rules = load_rules()
 
+    def test_valid_state_input(self):
+        valid_states = ['California', 'california', 'TEXAS', 'texas', 'illinois', 'Illinois']
+        invalid_states = ['Californi4', '', '12345', 'Tex@s']
+
+        # Test valid states
+        for state in valid_states:
+            with patch('builtins.input', return_value=state):
+                self.assertEqual(get_valid_state().lower(), state.lower())
+
+        # Test invalid states
+        for state in invalid_states:
+            with patch('builtins.input', return_value=state):
+                self.assertRaises(ValueError)
+
+
     def test_disqualified_state(self):
         engine = RulesEngine(self.rules)
         person = Person(720, 'Florida')
