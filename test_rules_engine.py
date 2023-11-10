@@ -19,7 +19,7 @@ class TestRulesEngine(unittest.TestCase):
                 self.assertEqual(get_valid_state().lower(), state.lower())
 
     def test_invalid_state_input(self):
-        invalid_states = ['Californi4', '', '12345', 'Tex@s']
+        invalid_states = ['Californi4', '', '1ll1no1s', 'Tex@$']
         for state in invalid_states:
             with patch('builtins.input', return_value=state):
                 self.assertRaises(ValueError)
