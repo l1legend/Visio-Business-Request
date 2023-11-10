@@ -32,7 +32,7 @@ def get_valid_state() -> str:
 def get_product_details() -> str:
     rules = load_rules()
     valid_product_names = set()
-    for rule in rules:
+    for rule in rules: # parse through rules.json
         condition = rule.get('condition', '')
         if "product.name" in condition:
             start = condition.find("'") + 1  # Find the opening quote

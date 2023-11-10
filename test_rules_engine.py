@@ -41,13 +41,6 @@ class TestRulesEngine(unittest.TestCase):
         engine.run_rules(person, product)
         self.assertFalse(product.disqualified, "Product should not be disqualified for the state of Illinois")
 
-    def test_non_disqualified_state(self):
-        engine = RulesEngine(self.rules)
-        person = Person(720, 'Illinois')
-        product = Product('7-1 ARM')
-        engine.run_rules(person, product)
-        self.assertFalse(product.disqualified, "Product should not be disqualified for the state of Illinois")
-
     def test_interest_rate_adjustment_for_credit_score_of_720(self):
         engine = RulesEngine(self.rules)
         person = Person(720, 'Florida')
