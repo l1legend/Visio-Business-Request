@@ -7,7 +7,7 @@ class RulesEngine:
     def __init__(self, rules): # Initialize the RulesEngine with a set of rules
         self.rules = rules
  
-    def run_rules(self, person, product):
+    def apply_rules(self, person, product):
         normalized_state = person.state.lower()
         for rule in self.rules:  # Iterate over each rule and evaluate its condition
             condition = rule['condition'].replace('person.state', f"'{normalized_state}'") # normalize state string before conditions are interpreted
@@ -38,9 +38,9 @@ if __name__ == '__main__':
 
     # Run the rules engine with the provided details.
     rules_engine = RulesEngine(rules)
-    rules_engine.run_rules(person_input, product_input)
+    rules_engine.apply_rules(person_input, product_input)
 
     # Output the results.
     print('\nResults:')
-    print(f'Product Interest Rate: {product_input.interest_rate}')
+    print(f'Product Interest Rate: {product_input.interest_rate}%')
     print(f'Product Disqualified: {product_input.disqualified}')
