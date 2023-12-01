@@ -8,7 +8,7 @@ class RulesEngine:
         self.rules = rules
  
     def apply_rules(self, person, product):
-        normalized_state = person.state.lower()
+        normalized_state = person.state.lower() #normalize state name to lowercase to ensure case-insensitivety when evaluating rules
         for rule in self.rules:  # Iterate over each rule and evaluate its condition
             condition = rule['condition'].replace('person.state', f"'{normalized_state}'") # normalize state string before conditions are interpreted
             if eval(condition): 

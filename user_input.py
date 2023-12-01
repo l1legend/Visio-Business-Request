@@ -1,4 +1,3 @@
-
 from rules_loader import load_rules
 
 def get_valid_credit_score() -> int:
@@ -45,3 +44,4 @@ def get_product_details() -> str:
             return product_name
         else:
             print("Product does not exist, please enter a valid product name.")
+
